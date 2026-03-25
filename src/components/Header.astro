@@ -1,0 +1,78 @@
+---
+import { siteConfig } from "../config";
+---
+
+<header id="nav" class="fixed top-0 w-full z-50 transition-all duration-500">
+  <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+    <a href="#" class="font-[family-name:var(--font-display)] text-lg font-medium tracking-tight text-charcoal">
+      {siteConfig.name.split(" ").slice(0, 2).join(" ")}
+      <span class="text-gold font-normal italic ml-0.5">
+        {siteConfig.name.split(" ").pop()}
+      </span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8">
+      {[
+        ["About", "#about"],
+        ["Experience", "#experience"],
+        ["Projects", "#projects"],
+        ["AI Cheatsheet", "https://gowthamkumar-nandakishore.github.io/aicheatsheet/"],
+        ["Contact", "#contact"],
+      ].map(([label, href]) => (
+        <a
+          href={href}
+          target={href.startsWith("http") ? "_blank" : undefined}
+          rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+          class="text-[0.8rem] font-medium tracking-[0.08em] uppercase text-slate hover:text-charcoal transition-colors duration-200"
+        >
+          {label}
+        </a>
+      ))}
+    </nav>
+    <button id="menu-btn" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Menu">
+      <span class="block w-5 h-[1.5px] bg-charcoal transition-all"></span>
+      <span class="block w-5 h-[1.5px] bg-charcoal transition-all"></span>
+    </button>
+  </div>
+  <!-- Mobile nav -->
+  <div id="mobile-nav" class="hidden md:hidden bg-warm-white border-t border-divider">
+    <nav class="flex flex-col px-6 py-4 gap-4">
+      {[
+        ["About", "#about"],
+        ["Experience", "#experience"],
+        ["Projects", "#projects"],
+        ["AI Cheatsheet", "https://gowthamkumar-nandakishore.github.io/aicheatsheet/"],
+        ["Contact", "#contact"],
+      ].map(([label, href]) => (
+        <a
+          href={href}
+          target={href.startsWith("http") ? "_blank" : undefined}
+          class="text-sm font-medium tracking-wider uppercase text-slate hover:text-charcoal"
+        >
+          {label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<script>
+  const nav = document.getElementById("nav")!;
+  const btn = document.getElementById("menu-btn")!;
+  const mobileNav = document.getElementById("mobile-nav")!;
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 40) {
+      nav.classList.add("bg-warm-white/95", "backdrop-blur-md", "shadow-[0_1px_0_var(--color-divider)]");
+    } else {
+      nav.classList.remove("bg-warm-white/95", "backdrop-blur-md", "shadow-[0_1px_0_var(--color-divider)]");
+    }
+  });
+
+  btn.addEventListener("click", () => {
+    mobileNav.classList.toggle("hidden");
+  });
+
+  mobileNav.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("click", () => mobileNav.classList.add("hidden"));
+  });
+</script>

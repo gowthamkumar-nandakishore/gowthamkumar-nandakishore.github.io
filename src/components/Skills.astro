@@ -1,0 +1,51 @@
+---
+import { siteConfig } from "../config";
+
+const groups = [
+  {
+    label: "Generative AI",
+    skills: ["AWS Bedrock", "Claude Sonnet", "RAG Pipelines", "Zero-Shot LLMs", "FAISS", "Elasticsearch", "In-Context Learning", "Vision-Language Models", "LMDX Prompting"],
+  },
+  {
+    label: "Backend & Infra",
+    skills: ["Python", "FastAPI", "C#", ".NET", "Docker", "Entity Framework", "LINQ", "AsyncIO"],
+  },
+  {
+    label: "Data & Observability",
+    skills: ["DynamoDB", "PostgreSQL", "SQL Server", "Amazon SQS", "S3", "System Design", "Distributed Systems", "JMeter", "Grafana", "InfluxDB"],
+  },
+];
+---
+
+<section class="relative py-24 bg-cream overflow-hidden">
+  <!-- Decorative: subtle diagonal lines -->
+  <div class="absolute inset-0 opacity-[0.015] pointer-events-none" aria-hidden="true">
+    <svg width="100%" height="100%"><defs><pattern id="diag" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="40" stroke="currentColor" stroke-width="0.5" /></pattern></defs><rect width="100%" height="100%" fill="url(#diag)" /></svg>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-6 relative">
+    <p class="section-label mb-4">Expertise</p>
+    <h2 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-medium text-charcoal mb-16 gold-line">
+      Technical depth
+    </h2>
+
+    <div class="grid md:grid-cols-3 gap-14">
+      {groups.map((group, i) => (
+        <div class="fade-in" style={`--i:${i}`}>
+          <h3 class="font-[family-name:var(--font-mono)] text-[0.65rem] tracking-[0.18em] uppercase text-gold mb-6 font-medium flex items-center gap-3">
+            <span class="w-2 h-2 bg-gold/40 rounded-full"></span>
+            {group.label}
+          </h3>
+          <div class="space-y-3.5">
+            {group.skills.map((skill) => (
+              <div class="flex items-center gap-3 group/skill">
+                <span class="w-4 h-px bg-gold/30 group-hover/skill:w-6 group-hover/skill:bg-gold transition-all duration-200 shrink-0"></span>
+                <span class="text-[0.85rem] text-charcoal/75 group-hover/skill:text-charcoal transition-colors duration-200">{skill}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

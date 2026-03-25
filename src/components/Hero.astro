@@ -1,0 +1,63 @@
+---
+import { siteConfig } from "../config";
+---
+
+<section class="relative min-h-[94vh] flex items-center pt-20 pb-16 overflow-hidden">
+  <!-- Decorative: large faded monogram watermark -->
+  <div class="absolute -right-20 top-1/2 -translate-y-1/2 font-[family-name:var(--font-display)] text-[28rem] font-bold leading-none text-charcoal/[0.018] select-none pointer-events-none hidden lg:block" aria-hidden="true">
+    G
+  </div>
+  <!-- Decorative: thin diagonal gold line -->
+  <div class="absolute top-0 right-[18%] w-px h-[45%] bg-gradient-to-b from-transparent via-gold/20 to-transparent hidden lg:block" aria-hidden="true"></div>
+
+  <div class="max-w-6xl mx-auto px-6 w-full relative">
+    <div class="grid lg:grid-cols-[1fr_auto] gap-16 items-end">
+      <!-- Left: Text -->
+      <div class="fade-in">
+        <div class="flex items-center gap-3 mb-8">
+          <span class="block w-8 h-px bg-gold"></span>
+          <span class="font-[family-name:var(--font-mono)] text-[0.6rem] tracking-[0.25em] uppercase text-slate">Engineering Leader</span>
+        </div>
+        <h1 class="font-[family-name:var(--font-display)] text-5xl md:text-7xl lg:text-8xl font-medium leading-[1.04] tracking-tight text-charcoal mb-8">
+          {siteConfig.name.split(" ").slice(0, 2).join(" ")}<br />
+          <span class="text-gold italic font-normal">
+            {siteConfig.name.split(" ").pop()}
+          </span>
+        </h1>
+        <p class="text-lg md:text-xl text-charcoal/70 max-w-lg leading-relaxed font-light mb-12">
+          {siteConfig.heroTagline}
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a
+            href={`mailto:${siteConfig.social.email}`}
+            class="group inline-flex items-center gap-2.5 px-8 py-4 bg-charcoal text-warm-white text-[0.75rem] font-medium tracking-[0.12em] uppercase hover:bg-charcoal-light transition-all duration-300"
+          >
+            <span>Get in Touch</span>
+            <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+          </a>
+          <a
+            href={siteConfig.social.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-8 py-4 border border-charcoal/15 text-charcoal text-[0.75rem] font-medium tracking-[0.12em] uppercase hover:border-gold hover:text-gold transition-all duration-300"
+          >
+            LinkedIn
+          </a>
+        </div>
+      </div>
+      <!-- Right: Vertical role card -->
+      <div class="fade-in hidden lg:flex flex-col items-end text-right gap-2">
+        <span class="font-[family-name:var(--font-mono)] text-[0.6rem] tracking-[0.18em] uppercase text-gold/70">Currently</span>
+        <span class="font-[family-name:var(--font-display)] text-lg text-charcoal font-medium">Data Science Team Leader</span>
+        <span class="text-sm text-slate">WiseTech Global</span>
+        <div class="w-px h-10 bg-gradient-to-b from-divider to-transparent my-2"></div>
+        <span class="font-[family-name:var(--font-mono)] text-[0.6rem] tracking-[0.18em] uppercase text-gold/70">Education</span>
+        <span class="font-[family-name:var(--font-display)] text-lg text-charcoal font-medium">M.Tech, BITS Pilani</span>
+        <span class="text-sm text-slate">Software Systems</span>
+        <div class="w-px h-10 bg-gradient-to-b from-divider to-transparent my-2"></div>
+        <span class="font-[family-name:var(--font-mono)] text-[0.6rem] tracking-[0.18em] uppercase text-gold/70">Location</span>
+        <span class="text-sm text-slate">Bangalore, India</span>
+      </div>
+    </div>
+  </div>
+</section>
