@@ -114,19 +114,18 @@ export const siteConfig = {
     {
       school: "BITS Pilani",
       degree: "M.Tech, Software Systems",
-      dateRange: "2016 — 2019",
+      dateRange: "2015 — 2017",
       achievements: [
         "Master of Technology in Software Systems",
         "Completed while working full-time at Odessa",
+        "Built a Data warehousing system",
       ],
     },
     {
-      school: "Anna University",
+      school: "Anna University (Karpagam Institute of Technology)",
       degree: "B.E., Electrical & Electronics Engineering",
       dateRange: "2010 — 2014",
-      achievements: [
-        "Karpagam Institute of Technology",
-      ],
+      achievements: [],
     },
   ],
 };
