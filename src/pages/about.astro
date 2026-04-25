@@ -1,0 +1,255 @@
+---
+import Layout from "../layouts/main.astro";
+import PageHeading from "../components/page-heading.astro";
+import Experience from "../components/about-experience.astro";
+import experiences from "../collections/experiences.json";
+import skills from "../collections/skills.json";
+
+const skillEntries = Object.entries(skills);
+
+const education = [
+  {
+    degree: "Bachelor of Technology — Computer Science",
+    institution: "GITAM University, Visakhapatnam, India",
+    year: "2010 — 2014",
+    details: "First Class with Distinction · Dean's List (3 semesters)",
+  },
+];
+
+const certifications = [
+  "PMI Agile Certified Practitioner (PMI-ACP)",
+  "Microsoft Certified: Azure Fundamentals (AZ-900)",
+];
+
+const publications = [
+  {
+    title:
+      "JTON: Efficient LLM Communication Through Optimized Token-Aware Serialization",
+    venue: "arXiv:2604.05865",
+    url: "https://arxiv.org/abs/2604.05865",
+    year: "2025",
+  },
+];
+---
+
+<Layout title="About — Gowtham Kumar N">
+  <div class="max-w-4xl mx-auto px-6 py-16">
+    <!-- Bio -->
+    <section class="mb-16">
+      <div class="flex flex-col md:flex-row gap-10 items-start">
+        <div class="flex-shrink-0">
+          <div
+            class="w-32 h-32 rounded-2xl overflow-hidden border-2 border-neutral-200 dark:border-neutral-700"
+          >
+            <img
+              src="/assets/images/photo.jpg"
+              alt="Gowtham Kumar N"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+        <div>
+          <h1
+            class="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-2"
+          >
+            Gowtham Kumar Nanda Kishore
+          </h1>
+          <p
+            class="text-lg text-neutral-500 dark:text-neutral-400 mb-4"
+          >
+            Senior AI Engineer and Engineering Lead
+          </p>
+          <div
+            class="prose prose-neutral dark:prose-invert prose-sm max-w-none"
+          >
+            <p>
+              I'm a Senior AI Engineer with 12+ years of experience shipping
+              production-grade systems — from high-throughput document parsing
+              pipelines to distributed financial platforms. Currently at WiseTech
+              Global, I lead the Generative AI engineering team building
+              CargoWise's document processing infrastructure.
+            </p>
+            <p>
+              My recent work reduced per-document AI processing costs from ~$1
+              to $0.05 and delivered 5× throughput improvement across three
+              architectural iterations. I'm a first-author researcher with work
+              published on arXiv on token-efficient serialization for LLMs.
+            </p>
+            <p>
+              I build open-source tools at the intersection of AI systems
+              engineering, observability, and security — including JTON (a
+              Rust/Python JSON superset for LLMs), Observer (LLM proxy), and
+              AgentID (zero-trust agent governance).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="mb-16">
+      <h2
+        class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-8"
+      >
+        Experience
+      </h2>
+      <div class="border-l-0">
+        {
+          experiences.map((exp) => (
+            <Experience
+              dates={exp.dates}
+              role={exp.role}
+              company={exp.company}
+              location={exp.location}
+              description={exp.description}
+            />
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Publications -->
+    <section class="mb-16">
+      <h2
+        class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-6"
+      >
+        Publications
+      </h2>
+      {
+        publications.map((pub) => (
+          <a
+            href={pub.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group block p-5 rounded-xl border border-dashed border-neutral-200 dark:border-neutral-800 hover:border-indigo-300 dark:hover:border-indigo-700 transition-colors"
+          >
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="text-sm font-semibold text-neutral-900 dark:text-neutral-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                  {pub.title}
+                </p>
+                <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-1 font-mono">
+                  {pub.venue} · {pub.year}
+                </p>
+              </div>
+              <svg
+                class="w-4 h-4 flex-shrink-0 mt-1 text-neutral-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </div>
+          </a>
+        ))
+      }
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="mb-16">
+      <h2
+        class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-6"
+      >
+        Skills
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        {
+          skillEntries.map(([category, items]) => (
+            <div class="p-5 rounded-xl border border-dashed border-neutral-200 dark:border-neutral-800">
+              <h3 class="text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-3 uppercase tracking-wider">
+                {category}
+              </h3>
+              <ul class="space-y-1.5">
+                {(items as string[]).map((skill) => (
+                  <li class="text-sm text-neutral-600 dark:text-neutral-400 flex items-start gap-2">
+                    <span class="text-neutral-300 dark:text-neutral-700 mt-1.5 text-[6px]">
+                      ●
+                    </span>
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="mb-16">
+      <h2
+        class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-6"
+      >
+        Education
+      </h2>
+      {
+        education.map((edu) => (
+          <div class="p-5 rounded-xl border border-dashed border-neutral-200 dark:border-neutral-800">
+            <p class="text-sm font-semibold text-neutral-900 dark:text-neutral-100">
+              {edu.degree}
+            </p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-300 mt-1">
+              {edu.institution}
+            </p>
+            <p class="text-xs text-neutral-400 dark:text-neutral-500 mt-1">
+              {edu.year} · {edu.details}
+            </p>
+          </div>
+        ))
+      }
+    </section>
+
+    <!-- Certifications -->
+    <section class="mb-16">
+      <h2
+        class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-6"
+      >
+        Certifications
+      </h2>
+      <div class="flex flex-wrap gap-3">
+        {
+          certifications.map((cert) => (
+            <span class="text-sm px-4 py-2 rounded-lg border border-dashed border-neutral-200 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300">
+              {cert}
+            </span>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="text-center py-10 border-t border-neutral-200 dark:border-neutral-800">
+      <h2
+        class="text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-3"
+      >
+        Let's Connect
+      </h2>
+      <p class="text-sm text-neutral-500 dark:text-neutral-400 mb-6">
+        Open to interesting collaborations, research discussions, and
+        engineering challenges.
+      </p>
+      <div class="flex justify-center gap-4 flex-wrap">
+        <a
+          href="mailto:gowthamkumarn@gmail.com"
+          class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-lg bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 hover:bg-neutral-700 dark:hover:bg-neutral-300 transition-colors"
+        >
+          Email me
+        </a>
+        <a
+          href="https://linkedin.com/in/gowthamkumarn"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-lg border border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors"
+        >
+          LinkedIn
+        </a>
+      </div>
+    </section>
+  </div>
+</Layout>

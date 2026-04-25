@@ -1,60 +1,123 @@
 ---
-import Header from "../components/Header.astro";
-import Hero from "../components/Hero.astro";
-import About from "../components/About.astro";
-import Stats from "../components/Stats.astro";
-import Experience from "../components/Experience.astro";
-import Projects from "../components/Projects.astro";
-import Skills from "../components/Skills.astro";
-import Contact from "../components/Contact.astro";
-import Footer from "../components/Footer.astro";
-import { siteConfig } from "../config";
-import "../styles/global.css";
+import Layout from "../layouts/main.astro";
+import HomeProjects from "../components/home/projects.astro";
+import Separator from "../components/home/separator.astro";
+import skills from "../collections/skills.json";
+
+const skillCategories = Object.entries(skills).slice(0, 4);
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={siteConfig.description} />
-    <meta property="og:title" content={`${siteConfig.name} — ${siteConfig.title}`} />
-    <meta property="og:description" content={siteConfig.description} />
-    <meta property="og:type" content="website" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <title>{siteConfig.name} — {siteConfig.title}</title>
-  </head>
-  <body>
-    <Header />
-    <main>
-      <Hero />
-      <Stats />
-      <About />
-      <Experience />
-      <Projects />
-      <Skills />
-      <Contact />
-    </main>
-    <Footer />
+<Layout title="Gowtham Kumar N — Senior AI Engineer">
+  <div class="max-w-4xl mx-auto px-6">
+    <!-- Hero Section -->
+    <section class="py-16 md:py-24">
+      <div class="flex flex-col-reverse md:flex-row items-start gap-10 md:gap-16">
+        <!-- Text -->
+        <div class="flex-1">
+          <p
+            class="text-sm uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-3"
+          >
+            Senior AI Engineer & Engineering Lead
+          </p>
+          <h1
+            class="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-neutral-100 mb-6 leading-tight"
+          >
+            Hello, I'm
+            <span
+              class="bg-gradient-to-r from-indigo-600 to-blue-600 dark:from-indigo-400 dark:to-blue-400 bg-clip-text text-transparent"
+            >
+              Gowtham.
+            </span>
+          </h1>
+          <p
+            class="text-lg text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed"
+          >
+            12+ years building production-grade AI systems and distributed
+            backend infrastructure. Currently leading Generative AI at WiseTech
+            Global — delivering 5× throughput gains and 20× cost reduction in
+            document processing. First-author researcher with a paper on
+            <a
+              href="https://arxiv.org/abs/2604.05865"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-indigo-600 dark:text-indigo-400 hover:underline"
+              >arXiv</a
+            >.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a
+              href="https://github.com/gowthamkumar-nandakishore"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-lg bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 hover:bg-neutral-700 dark:hover:bg-neutral-300 transition-colors"
+            >
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                ></path>
+              </svg>
+              GitHub
+            </a>
+            <a
+              href="/about"
+              class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-lg border border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors"
+            >
+              About me →
+            </a>
+          </div>
+        </div>
 
-    <script>
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-            }
-          });
-        },
-        { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
-      );
-      document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
-    </script>
-  </body>
-</html>
+        <!-- Photo -->
+        <div class="flex-shrink-0">
+          <div
+            class="relative w-36 h-36 md:w-48 md:h-48 rounded-2xl overflow-hidden border-2 border-neutral-200 dark:border-neutral-700"
+          >
+            <img
+              src="/assets/images/photo.jpg"
+              alt="Gowtham Kumar N"
+              class="w-full h-full object-cover"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Separator text="Projects & Research" />
+
+    <!-- Featured Projects -->
+    <HomeProjects />
+
+    <Separator text="Core Skills" />
+
+    <!-- Skills Preview -->
+    <section class="pb-16">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {
+          skillCategories.map(([category, items]) => (
+            <div class="p-5 rounded-xl border border-dashed border-neutral-200 dark:border-neutral-800">
+              <h3 class="text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-3">
+                {category}
+              </h3>
+              <div class="flex flex-wrap gap-1.5">
+                {(items as string[]).slice(0, 4).map((skill) => (
+                  <span class="text-xs px-2 py-1 rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <div class="mt-6 text-center">
+        <a
+          href="/about#skills"
+          class="text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+        >
+          View all skills →
+        </a>
+      </div>
+    </section>
+  </div>
+</Layout>

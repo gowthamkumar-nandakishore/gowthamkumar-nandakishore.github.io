@@ -1,0 +1,53 @@
+---
+import "../assets/css/main.css";
+import Header from "../components/header.astro";
+import Footer from "../components/footer.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Gowtham Kumar N",
+  description = "Senior AI Engineer and Engineering Lead — 12+ years building production AI systems, distributed backends, and engineering teams.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <script is:inline>
+      if (typeof Storage !== "undefined") {
+        if (localStorage.getItem("dark_mode") === "true") {
+          document.documentElement.classList.add("dark");
+        }
+      }
+    </script>
+  </head>
+  <body
+    class="antialiased bg-white dark:bg-neutral-950 min-h-screen flex flex-col"
+  >
+    <div
+      class="fixed inset-0 pointer-events-none opacity-[0.015] dark:opacity-[0.03]"
+      style="background-image: url(&quot;data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;);"
+    >
+    </div>
+    <div class="relative z-10 flex flex-col min-h-screen">
+      <Header />
+      <main class="flex-1">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

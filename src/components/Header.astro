@@ -1,78 +1,92 @@
 ---
-import { siteConfig } from "../config";
+import menu from "../collections/menu.json";
+
+const currentPath = Astro.url.pathname;
 ---
 
-<header id="nav" class="fixed top-0 w-full z-50 transition-all duration-500">
-  <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
-    <a href="#" class="font-[family-name:var(--font-display)] text-lg font-medium tracking-tight text-charcoal">
-      {siteConfig.name.split(" ").slice(0, 2).join(" ")}
-      <span class="text-gold font-normal italic ml-0.5">
-        {siteConfig.name.split(" ").pop()}
+<header class="sticky top-0 z-50 bg-white/80 dark:bg-neutral-950/80 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800">
+  <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 group">
+      <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 text-xs font-bold tracking-tight">
+        GK
+      </span>
+      <span class="text-sm font-semibold text-neutral-900 dark:text-neutral-100 hidden sm:inline">
+        Gowtham Kumar
       </span>
     </a>
-    <nav class="hidden md:flex items-center gap-8">
-      {[
-        ["About", "#about"],
-        ["Experience", "#experience"],
-        ["Projects", "#projects"],
-        ["AI Cheatsheet", "https://gowthamkumar-nandakishore.github.io/aicheatsheet/"],
-        ["Contact", "#contact"],
-      ].map(([label, href]) => (
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-6">
+      {menu.map((item) => (
         <a
-          href={href}
-          target={href.startsWith("http") ? "_blank" : undefined}
-          rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-          class="text-[0.8rem] font-medium tracking-[0.08em] uppercase text-slate hover:text-charcoal transition-colors duration-200"
+          href={item.url}
+          class:list={[
+            "text-sm transition-colors duration-200",
+            currentPath === item.url
+              ? "text-neutral-900 dark:text-neutral-100 font-medium"
+              : "text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100",
+          ]}
         >
-          {label}
+          {item.name}
         </a>
       ))}
+
+      <!-- Dark mode toggle -->
+      <button
+        data-dark-toggle
+        class="p-2 rounded-lg text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+        aria-label="Toggle dark mode"
+      >
+        <svg class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+        <svg class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+      </button>
     </nav>
-    <button id="menu-btn" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Menu">
-      <span class="block w-5 h-[1.5px] bg-charcoal transition-all"></span>
-      <span class="block w-5 h-[1.5px] bg-charcoal transition-all"></span>
-    </button>
+
+    <!-- Mobile menu button -->
+    <div class="flex items-center gap-2 md:hidden">
+      <button
+        data-dark-toggle
+        class="p-2 rounded-lg text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+        aria-label="Toggle dark mode"
+      >
+        <svg class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+        <svg class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+      </button>
+      <button
+        data-menu-toggle
+        class="p-2 rounded-lg text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+        aria-label="Toggle menu"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
   </div>
-  <!-- Mobile nav -->
-  <div id="mobile-nav" class="hidden md:hidden bg-warm-white border-t border-divider">
-    <nav class="flex flex-col px-6 py-4 gap-4">
-      {[
-        ["About", "#about"],
-        ["Experience", "#experience"],
-        ["Projects", "#projects"],
-        ["AI Cheatsheet", "https://gowthamkumar-nandakishore.github.io/aicheatsheet/"],
-        ["Contact", "#contact"],
-      ].map(([label, href]) => (
-        <a
-          href={href}
-          target={href.startsWith("http") ? "_blank" : undefined}
-          class="text-sm font-medium tracking-wider uppercase text-slate hover:text-charcoal"
-        >
-          {label}
-        </a>
-      ))}
-    </nav>
-  </div>
+
+  <!-- Mobile menu -->
+  <nav data-mobile-menu class="hidden md:hidden border-t border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 px-6 py-4">
+    {menu.map((item) => (
+      <a
+        href={item.url}
+        class:list={[
+          "block py-2 text-sm transition-colors",
+          currentPath === item.url
+            ? "text-neutral-900 dark:text-neutral-100 font-medium"
+            : "text-neutral-500 dark:text-neutral-400",
+        ]}
+      >
+        {item.name}
+      </a>
+    ))}
+  </nav>
 </header>
-
-<script>
-  const nav = document.getElementById("nav")!;
-  const btn = document.getElementById("menu-btn")!;
-  const mobileNav = document.getElementById("mobile-nav")!;
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 40) {
-      nav.classList.add("bg-warm-white/95", "backdrop-blur-md", "shadow-[0_1px_0_var(--color-divider)]");
-    } else {
-      nav.classList.remove("bg-warm-white/95", "backdrop-blur-md", "shadow-[0_1px_0_var(--color-divider)]");
-    }
-  });
-
-  btn.addEventListener("click", () => {
-    mobileNav.classList.toggle("hidden");
-  });
-
-  mobileNav.querySelectorAll("a").forEach((a) => {
-    a.addEventListener("click", () => mobileNav.classList.add("hidden"));
-  });
-</script>

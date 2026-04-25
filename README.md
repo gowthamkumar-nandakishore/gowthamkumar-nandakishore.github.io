@@ -1,6 +1,14 @@
 # gowthamkumar-nandakishore.github.io
 
-Personal portfolio site built with [Astro](https://astro.build/). Deployed on GitHub Pages.
+Personal portfolio site built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/). Deployed on [Vercel](https://vercel.com/).
+
+## Development
+
+```bash
+npm install
+npm run dev      # http://localhost:4321
+npm run build    # static output → dist/
+```
 
 ## License
 

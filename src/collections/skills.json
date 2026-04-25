@@ -1,0 +1,50 @@
+{
+  "Generative AI": [
+    "LLM Orchestration (LangChain, LangGraph, Semantic Kernel)",
+    "RAG Systems (FAISS, BM25, Hybrid Retrieval)",
+    "Prompt Engineering & Guardrails",
+    "Multi-Agent Architectures",
+    "Structured Generation (JSON Mode, Tool Calling)"
+  ],
+  "AI / ML Systems": [
+    "PyTorch & Hugging Face Transformers",
+    "Embedding Models & Vector Stores",
+    "Cross-Encoder Reranking",
+    "Model Evaluation & Benchmarking",
+    "ONNX Runtime Optimization"
+  ],
+  "Languages": [
+    "Python",
+    "Rust",
+    "C#",
+    "TypeScript",
+    "SQL"
+  ],
+  "Backend & Async": [
+    "FastAPI",
+    "ASP.NET Core",
+    "Celery & Redis",
+    "RabbitMQ",
+    "gRPC & REST"
+  ],
+  "Cloud & Observability": [
+    "Azure (Functions, Blob, Service Bus)",
+    "AWS (S3, Lambda)",
+    "OpenTelemetry & Prometheus",
+    "Grafana & Datadog",
+    "Elasticsearch"
+  ],
+  "DevOps & Tooling": [
+    "Docker & Kubernetes",
+    "GitHub Actions CI/CD",
+    "Terraform",
+    "Git & Trunk-Based Development"
+  ],
+  "Architecture": [
+    "Event-Driven Systems",
+    "Microservices",
+    "Domain-Driven Design",
+    "Performance Engineering",
+    "Technical Leadership (6–12 engineers)"
+  ]
+}

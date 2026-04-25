@@ -1,0 +1,23 @@
+[
+  {
+    "dates": "Jul 2024 — Present",
+    "role": "Data Science Team Leader (AI Engineering Lead)",
+    "company": "WiseTech Global · CargoWise",
+    "location": "Bangalore, India · Remote (UK, Australia)",
+    "description": "Leading Generative AI document parsing pipeline — reduced document processing cost from ~$1 to $0.05 per document (20× reduction). Delivered 5× throughput improvement across three architectural iterations. Published first-author research paper on arXiv."
+  },
+  {
+    "dates": "Apr 2023 — Jul 2024",
+    "role": "Senior Technical Lead",
+    "company": "Odessa · LeaseWave",
+    "location": "Bangalore, India",
+    "description": "Led platform performance team delivering throughput and latency improvements. Achieved 30% reduction in regression cycle time through comprehensive load testing architecture across the global financial leasing platform."
+  },
+  {
+    "dates": "Dec 2013 — Apr 2023",
+    "role": "SWE → Module Lead → Associate TL → Technical Lead",
+    "company": "Odessa · LeaseWave",
+    "location": "Bangalore, India",
+    "description": "10-year career progression from intern to Technical Lead. Re-architected financial modules achieving 60% performance improvement. Delivered solutions for $11B client. Built 65-screen Activity Center tracking 100+ business events. Led teams of 6–12 engineers."
+  }
+]
