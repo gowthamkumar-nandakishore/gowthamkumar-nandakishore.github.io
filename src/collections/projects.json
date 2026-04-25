@@ -5,28 +5,24 @@
     "url": "https://github.com/gowthamkumar-nandakishore/JTON",
     "tags": ["Rust", "Python", "PyO3", "SIMD"],
     "badge": "arXiv:2604.05865",
-    "badgeUrl": "https://arxiv.org/abs/2604.05865",
-    "gradient": "from-blue-600 to-indigo-700"
+    "badgeUrl": "https://arxiv.org/abs/2604.05865"
   },
   {
     "name": "Observer",
     "description": "LLM observability reverse proxy with sub-millisecond overhead. PII redaction, prompt injection defense, response caching, and token counting. Exports to OpenTelemetry and Prometheus.",
     "url": "https://github.com/gowthamkumar-nandakishore",
-    "tags": ["Python", "FastAPI", "OpenTelemetry", "Docker"],
-    "gradient": "from-emerald-600 to-teal-700"
+    "tags": ["Python", "FastAPI", "OpenTelemetry", "Docker"]
   },
   {
     "name": "AgentID",
     "description": "Zero-trust governance gateway for AI agents. Identity verification, policy-as-code (Rego), real-time kill switches, human-in-the-loop approval queues, and audit trails.",
     "url": "https://github.com/gowthamkumar-nandakishore",
-    "tags": ["Python", "Rego", "OAuth 2.0", "Docker"],
-    "gradient": "from-violet-600 to-purple-700"
+    "tags": ["Python", "Rego", "OAuth 2.0", "Docker"]
   },
   {
     "name": "Incident-RAG",
     "description": "Agentic incident resolution system using a LangGraph state machine with hybrid retrieval (vector + BM25 + cross-encoder reranking) and confidence-based routing.",
     "url": "https://github.com/gowthamkumar-nandakishore",
-    "tags": ["LangGraph", "FAISS", "BM25", "Python"],
-    "gradient": "from-amber-600 to-orange-700"
+    "tags": ["LangGraph", "FAISS", "BM25", "Python"]
   }
 ]
