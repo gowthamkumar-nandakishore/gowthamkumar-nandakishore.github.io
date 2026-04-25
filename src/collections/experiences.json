@@ -4,20 +4,27 @@
     "role": "Data Science Team Leader (AI Engineering Lead)",
     "company": "WiseTech Global · CargoWise",
     "location": "Bangalore, India · Remote (UK, Australia)",
-    "description": "Leading Generative AI document parsing pipeline — reduced document processing cost from ~$1 to $0.05 per document (20× reduction). Delivered 5× throughput improvement across three architectural iterations. Published first-author research paper on arXiv."
+    "description": "Managing a cross-timezone AI engineering team (8 reports across India & UK) building the Generative AI document parsing pipeline. Reduced processing cost from ~$1 to $0.05 per document (20× reduction). Delivered 5× throughput improvement across three architectural iterations. Published first-author research on arXiv."
   },
   {
     "dates": "Apr 2023 — Jul 2024",
     "role": "Senior Technical Lead",
     "company": "Odessa · LeaseWave",
     "location": "Bangalore, India",
-    "description": "Led platform performance team delivering throughput and latency improvements. Achieved 30% reduction in regression cycle time through comprehensive load testing architecture across the global financial leasing platform."
+    "description": "Led platform performance team with delivery ownership and people management responsibilities. Achieved 30% reduction in regression incidents through shift-left quality practices and distributed load testing infrastructure."
   },
   {
-    "dates": "Dec 2013 — Apr 2023",
-    "role": "SWE → Module Lead → Associate TL → Technical Lead",
+    "dates": "Jul 2019 — Apr 2023",
+    "role": "Technical Lead / Associate Technical Lead",
     "company": "Odessa · LeaseWave",
     "location": "Bangalore, India",
-    "description": "10-year career progression from intern to Technical Lead. Re-architected financial modules achieving 60% performance improvement. Delivered solutions for $11B client. Built 65-screen Activity Center tracking 100+ business events. Led teams of 6–12 engineers."
+    "description": "Managed cross-functional team of 10–12 engineers through major revamps of a high-risk global financial platform. Owned end-to-end hiring, performance reviews, and career coaching. Defined HLD/LLD standards achieving 60% performance improvement. Delivered high-scale solutions for a $11B client."
+  },
+  {
+    "dates": "Dec 2013 — Jul 2019",
+    "role": "Module Lead / Senior SWE / SWE",
+    "company": "Odessa · LeaseWave",
+    "location": "Bangalore, India",
+    "description": "Progressed from intern to Module Lead over 6 years. Built 65-screen Activity Center with 100 + business events display under aggressive deadlines. Engineered data migration tools with 4–6× speed improvements across 10 million records."
   }
 ]

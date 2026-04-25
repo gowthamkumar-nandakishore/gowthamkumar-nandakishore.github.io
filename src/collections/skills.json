@@ -29,7 +29,7 @@
   ],
   "Cloud & Observability": [
     "Azure (Functions, Blob, Service Bus)",
-    "AWS (S3, Lambda)",
+    "AWS",
     "OpenTelemetry & Prometheus",
     "Grafana & Datadog",
     "Elasticsearch"

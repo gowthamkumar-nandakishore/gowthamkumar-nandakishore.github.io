@@ -9,16 +9,22 @@ const skillEntries = Object.entries(skills);
 
 const education = [
   {
-    degree: "Bachelor of Technology — Computer Science",
-    institution: "GITAM University, Visakhapatnam, India",
+    degree: "M.Tech, Software Systems",
+    institution: "BITS Pilani",
+    year: "2015 — 2017",
+    details: "",
+  },
+  {
+    degree: "B.E., Electrical and Electronics Engineering",
+    institution: "Karpagam Institute of Technology, Anna University",
     year: "2010 — 2014",
-    details: "First Class with Distinction · Dean's List (3 semesters)",
+    details: "",
   },
 ];
 
 const certifications = [
-  "PMI Agile Certified Practitioner (PMI-ACP)",
-  "Microsoft Certified: Azure Fundamentals (AZ-900)",
+  "Secure Large Language Model Applications (Cloud Security Alliance)",
+  "Agile Practitioner",
 ];
 
 const publications = [
@@ -63,10 +69,10 @@ const publications = [
             class="prose prose-neutral dark:prose-invert prose-sm max-w-none"
           >
             <p>
-              I'm a Senior AI Engineer with 12+ years of experience shipping
-              production-grade systems — from high-throughput document parsing
-              pipelines to distributed financial platforms. Currently at WiseTech
-              Global, I lead the Generative AI engineering team building
+              I'm an AI Engineering Lead with 12+ years of experience shipping
+              production-grade systems and 7+ years of people leadership across
+              distributed India, UK, and Australia teams. Currently at WiseTech
+              Global, I manage a cross-timezone AI engineering team building
               CargoWise's document processing infrastructure.
             </p>
             <p>
@@ -190,7 +196,7 @@ const publications = [
       </h2>
       {
         education.map((edu) => (
-          <div class="p-5 rounded-xl border border-dashed border-neutral-200 dark:border-neutral-800">
+          <div class="p-5 rounded-xl border border-dashed border-neutral-200 dark:border-neutral-800 mb-3 last:mb-0">
             <p class="text-sm font-semibold text-neutral-900 dark:text-neutral-100">
               {edu.degree}
             </p>
@@ -198,7 +204,7 @@ const publications = [
               {edu.institution}
             </p>
             <p class="text-xs text-neutral-400 dark:text-neutral-500 mt-1">
-              {edu.year} · {edu.details}
+              {edu.year}{edu.details ? ` · ${edu.details}` : ""}
             </p>
           </div>
         ))
